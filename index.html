@@ -1,0 +1,42 @@
+<!-- Sample Sing-up form using Angular Js-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Angular JS</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href = "CSS/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  </head>
+  <body>
+    <h2>Sign-Up</h2>
+    <div ng-app="myApp">
+      <form id="myForm" name="myForm" novalidate ng-controller="FormController" ng-submit="submitForm()">
+        <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <input id="firstName" name="firstName" type="text" placeholder="First Name" ng-model="newUser.firstName" required />
+          <span class="error-message" ng-show="showMessage(myForm.firstName)">Please complete this field.</span>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input id="lastName" name="lastName" type="text" placeholder="Last Name" ng-model="newUser.lastName" required />
+          <span class="error-message" ng-show="showMessage(myForm.lastName)">Please complete this field.</span>
+        </div>
+        <div class="form-group custom-checkbox">
+          <input id="subscribe" name="subscribe" type="checkbox" ng-model="newUser.subscribeNews" />
+          <label for="subscribe"><span><span></span></span>Subscribe to our newsletter</label>
+        </div>
+        <div class="form-group custom-checkbox">
+          <input id="acceptTC" name="acceptTC" type="checkbox" ng-model="newUser.acceptConds" required />
+          <label for="acceptTC"><span><span></span></span>Accept Terms and Conditions</label>
+          <span class="error-message" ng-show="showMessage(myForm.acceptTC)">Please accept the terms.</span>
+        </div>
+        <div class="form-group">
+          <button id="submitForm" name="submitForm" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+    <script src = "JS/script.js"></script>
+  </body>
+</html>
